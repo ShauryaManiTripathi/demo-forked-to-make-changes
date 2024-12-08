@@ -1,0 +1,20 @@
+* {
+  border: 0;
+  margin: 0;
+  list-style: none;
+  text-decoration: none;
+}
+
+.heading {
+  display: flex;
+  justify-content: space-around;
+}
+
+.App {
+  font-family: sans-serif;
+}
+
+.navList {
+  display: flex;
+  justify-content: space-around;
+}

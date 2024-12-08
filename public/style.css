@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+body {
+  background-color: white;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+.white-box {
+  background-color: white;
+}
+
+.grey-box {
+  background-color: grey;
+}
+
+.black-box {
+  background-color: black;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
