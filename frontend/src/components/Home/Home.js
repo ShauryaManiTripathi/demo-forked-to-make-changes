@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { StatsGraphs } from "../StatsGraphs";
 
 function Home() {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -21,16 +22,18 @@ function Home() {
       {/* SITE LOGO */}
       <div className="d-flex flex-wrap align-items-center justify-content-around py-1 border-bottom">
         <div className="white-box">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="80"
-            height="80"
-            viewBox="0 0 24 24"
-            style={{ fill: "rgba(0, 0, 0, 1)", transform: "0", msfilter: "0" }}
-          >
-            <circle cx="12" cy="6" r="2"></circle>
-            <path d="M14 9h-4a1 1 0 0 0-.8.4l-3 4 1.6 1.2L9 13v7h2v-4h2v4h2v-7l1.2 1.6 1.6-1.2-3-4A1 1 0 0 0 14 9z"></path>
-          </svg>
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Emblem_of_India.svg/752px-Emblem_of_India.svg.png"
+            alt="Digital India"
+            className="mb-4"
+            style={{
+              display: "block", // Make it a block element
+              marginLeft: "auto", // Center the image horizontally
+              marginRight: "auto", // Center the image horizontally
+              width: "150px", // Set the width (change it as needed)
+              height: "auto", // Maintain the aspect ratio based on the width
+            }}
+          />
         </div>
         <div className="box d-flex flex-column">
           <h3 className="mt-2 mb-2 display-6 fw-bold text-black">
@@ -41,16 +44,18 @@ function Home() {
           </h3>
         </div>
         <div className="white-box">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="80"
-            height="80"
-            viewBox="0 0 24 24"
-            style={{ fill: "rgba(0, 0, 0, 1)", transform: "0", msfilter: "0" }}
-          >
-            <path d="M12.005 21.992v-3.877c4.104 0 7.288-4.068 5.714-8.388a5.81 5.81 0 0 0-3.457-3.446c-4.319-1.563-8.389 1.61-8.389 5.714H2.008c0-6.541 6.325-11.642 13.184-9.499 2.991.94 5.383 3.321 6.313 6.313 2.141 6.858-2.96 13.183-9.5 13.183z"></path>
-            <path d="M12.017 18.139H8.152v-3.866h3.865zm-3.865 2.959H5.193v-2.959h2.959zm-2.959-2.959H2.711v-2.483h2.482v2.483z"></path>
-          </svg>
+          <img
+            src="https://upload.wikimedia.org/wikipedia/en/thumb/9/95/Digital_India_logo.svg/1200px-Digital_India_logo.svg.png"
+            alt="Digital India"
+            className="mb-4"
+            style={{
+              display: "block", // Make it a block element
+              marginLeft: "auto", // Center the image horizontally
+              marginRight: "auto", // Center the image horizontally
+              width: "220px", // Set the width (change it as needed)
+              height: "auto", // Maintain the aspect ratio based on the width
+            }}
+          />
         </div>
       </div>
 
@@ -128,12 +133,18 @@ function Home() {
         </div>
       </header>
 
+      {/* STATS GRAPHS */}
+      <div className="container px-4 py-5">
+        <h2 className="pb-2 border-bottom">Statistics</h2>
+        <StatsGraphs />
+      </div>
+
       {/* MAIN SECTION */}
       <div className="container px-4 py-5" id="custom-cards">
         <div className="row row-cols-1 row-cols-lg-2 align-items-stretch g-4 py-2">
           <div className="col">
             <div
-              className="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg"
+              className="card card-cover h-100 overflow-hidden bg-green-400 hover:bg-green-500 hover:cursor-pointer rounded-4 shadow-lg"
               style={{ backgroundImage: "url('unsplash-photo-1.jpg')" }}
             >
               <a
@@ -166,7 +177,7 @@ function Home() {
 
           <div className="col">
             <div
-              className="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg"
+              className="card card-cover h-100 overflow-hidden bg-green-400  hover:bg-green-500 hover:cursor-pointer rounded-4 shadow-lg"
               style={{ backgroundImage: "url('unsplash-photo-1.jpg')" }}
             >
               <a
@@ -201,13 +212,13 @@ function Home() {
 
           <div className="col">
             <div
-              className="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg"
+              className="card card-cover h-100 overflow-hidden bg-green-400  hover:bg-green-500 hover:cursor-pointer rounded-4 shadow-lg"
               style={{ backgroundImage: "url('unsplash-photo-1.jpg')" }}
             >
               <a
                 className="d-flex flex-column h-100 p-5 pb-3 text-shadow-1"
                 onClick={() =>
-                  navigate("./mainReimburse", { state: { user: "patient" } })
+                  navigate("./authority", { state: { user: "patient" } })
                 }
               >
                 <h3 className="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">
@@ -236,15 +247,15 @@ function Home() {
 
           <div className="col">
             <div
-              className="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg"
+              className="card card-cover h-100 overflow-hidden bg-green-400  hover:bg-green-500 hover:cursor-pointer rounded-4 shadow-lg"
               style={{ backgroundImage: "url('unsplash-photo-1.jpg')" }}
             >
               <a
-                onClick={() => navigate("./status")}
+                onClick={() => navigate("./profile")}
                 className="d-flex flex-column h-100 p-5 pb-3 text-shadow-1"
               >
                 <h3 className="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">
-                  STATUS
+                  PROFILE
                 </h3>
                 <ul className="d-flex list-unstyled mt-auto">
                   <li className="me-auto">
@@ -268,33 +279,6 @@ function Home() {
           </div>
         </div>
       </div>
-
-      {/* FOOTER */}
-      <footer className="py-3 my-4">
-        <ul className="nav justify-content-center border-bottom pb-3 mb-3">
-          <li className="nav-item">
-            <a href="#" className="nav-link px-2 text-black">
-              Home
-            </a>
-          </li>
-          <li className="nav-item">
-            <a href="#" className="nav-link px-2 text-black">
-              About
-            </a>
-          </li>
-          <li className="nav-item">
-            <a href="#" className="nav-link px-2 text-black">
-              Contact
-            </a>
-          </li>
-          <li className="nav-item">
-            <a href="#" className="nav-link px-2 text-black">
-              Help
-            </a>
-          </li>
-        </ul>
-        <p className="text-center text-black">© 2024 Company, Inc</p>
-      </footer>
     </div>
   );
 }

@@ -9,6 +9,8 @@ import MainReimburse from "./components/Reimburse/MainReimburse";
 import NewApplication from "./components/Reimburse/comp/NewApplication";
 import PastApplicaion from "./components/Reimburse/comp/PastApplication";
 import Status from "./components/Status/Status";
+import ProfilePage from "./components/Profile/ProfilePage";
+import Authority from "./components/Authority/Authority";
 
 export default function App() {
   return (
@@ -17,7 +19,6 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/appointment" element={<Appointment />} />
-        <Route path="/dispensary" element={<Dispensary />} />
         <Route path="/mainReimburse" element={<MainReimburse />} />
         <Route
           path="/mainReimburse/pastApplication"
@@ -27,7 +28,10 @@ export default function App() {
           path="/mainReimburse/newApplication"
           element={<NewApplication />}
         />
+        <Route path="/profile" element={<ProfilePage />} />
         <Route path="/status" element={<Status />} />
+        <Route path="/authority" element={<Authority />} />
+        <Route path="/dispensary" element={<Dispensary />} />
       </Routes>
     </Router>
   );

@@ -1,0 +1,101 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Beneficiary {
+  id                String         @id @default(uuid())
+  name              String
+  aadharNumber      String         @unique
+  email             String
+  phoneNumber       String
+  password          String
+  bankAccountNumber String
+  holderName        String
+  branchName        String
+  IFSCCode          String
+  prescription      Prescription[]
+}
+
+model Prescription {
+  id                String            @id @default(uuid())
+  Beneficiary       Beneficiary       @relation(fields: [beneficiaryId], references: [id])
+  beneficiaryId     String
+  prescriptionImage String
+  medicinesIssued   IssuedMedicines[]
+
+  createdAt DateTime @default(now())
+}
+
+model Hospital {
+  id            String       @id @default(uuid())
+  name          String
+  contactNumber String
+  dispensary    Dispensary[]
+}
+
+model Stock {
+  id                        String @id @default(uuid())
+  medicineName              String @unique
+  quantityAvailable         Int
+  minimumQuantityToMaintain Int
+}
+
+model Authority {
+  id           String @id @default(uuid())
+  aadharNumber String @unique
+  name         String
+  email        String
+  phoneNumber  String
+}
+
+model IssuedMedicines {
+  id             String       @id @default(uuid())
+  prescriptionId String
+  Prescription   Prescription @relation(fields: [prescriptionId], references: [id])
+  medicineName   String
+  quantity       Int
+  period         String
+}
+
+model ReimburseBill {
+  id             String              @id @default(uuid())
+  billNumber     Int
+  billImage      String
+  medicine       ReimburseMedicine[]
+  prescriptionId String
+  beneficiaryId  String
+  status         Status @default(Pending)
+}
+
+model ReimburseMedicine {
+  id           String        @id @default(uuid())
+  billId       String
+  Bill         ReimburseBill @relation(fields: [billId], references: [id])
+  medicineName String
+  quantity     Int
+  amount       Int
+}
+
+model Dispensary {
+  id         String   @id @default(uuid())
+  name       String   @unique
+  hospitalId String
+  hospital   Hospital @relation(fields: [hospitalId], references: [id])
+}
+
+enum Status {
+  Pending
+  Approved
+  Rejected
+}
