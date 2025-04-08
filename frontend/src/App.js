@@ -11,6 +11,7 @@ import PastApplicaion from "./components/Reimburse/comp/PastApplication";
 import Status from "./components/Status/Status";
 import ProfilePage from "./components/Profile/ProfilePage";
 import Authority from "./components/Authority/Authority";
+import Chatbot from "./components/Chatbot/ChatBot";
 
 export default function App() {
   return (
@@ -33,6 +34,9 @@ export default function App() {
         <Route path="/authority" element={<Authority />} />
         <Route path="/dispensary" element={<Dispensary />} />
       </Routes>
+      
+      {/* Add the ChatbotWidget component here so it appears on all pages */}
+      <Chatbot />
     </Router>
   );
 }

@@ -10,7 +10,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = "postgresql://postgres:passwd@127.0.0.1:5432/sahil"
+  url      = env("DATABASE_URL")
 }
 
 model Beneficiary {
