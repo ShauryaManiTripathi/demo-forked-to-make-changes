@@ -73,7 +73,7 @@ function OcrScan() {
         contents: [{
           parts: [
             {
-              text: "Extract all text visible in this image. Format it properly. Provide only the extracted text without any additional commentary."
+              text: "Extract all text visible in this image. Format it properly. Provide only the extracted text without any additional commentary, make the extracted text in presentation form like if its some document."
             },
             {
               inline_data: {

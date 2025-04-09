@@ -89,6 +89,11 @@ function Home() {
               Help
             </a>
           </li>
+          <li>
+            <a href="/ocr-scan" className="nav-link px-5">
+              OCR
+            </a>
+          </li>
         </ul>
 
         <div className="col-md-3 text-end mx-2">
