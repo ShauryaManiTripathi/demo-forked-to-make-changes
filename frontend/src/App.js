@@ -12,6 +12,7 @@ import Status from "./components/Status/Status";
 import ProfilePage from "./components/Profile/ProfilePage";
 import Authority from "./components/Authority/Authority";
 import Chatbot from "./components/Chatbot/ChatBot";
+import OcrScan from "./components/OcrScan/OcrScan";
 
 export default function App() {
   return (
@@ -33,6 +34,7 @@ export default function App() {
         <Route path="/status" element={<Status />} />
         <Route path="/authority" element={<Authority />} />
         <Route path="/dispensary" element={<Dispensary />} />
+        <Route path="/ocr-scan" element={<OcrScan />} />
       </Routes>
       
       {/* Add the ChatbotWidget component here so it appears on all pages */}
